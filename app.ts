@@ -8,7 +8,7 @@ const server = Bun.serve({
   async fetch() {
     const browser = await puppeteer
     .use(StealthPlugin())
-    .launch({ headless: 'new' });
+    .launch({ headless: 'new', args: ["--no-sandbox"] });
 
   const page = await browser.newPage();
   await page.goto('https://www.diariooficial.interior.gob.cl/');
